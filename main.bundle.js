@@ -24,8 +24,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var AuthService = (function () {
     function AuthService(http) {
         this.http = http;
-        // public api_url ="http://138.197.75.58:8888";
-        this.api_url = "https://localhost:8080";
+        this.api_url = "http://138.197.75.58:8888";
+        // public api_url ="https://localhost:8080";
         this.username = "Tushar";
         this.loginEvent = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
         var currentUser = localStorage.getItem('currentUser');
