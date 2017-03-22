@@ -1,12 +1,12 @@
 webpackJsonp([0,4],{
 
-/***/ 178:
+/***/ 119:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(164);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(126);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(165);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(127);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -24,12 +24,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var AuthService = (function () {
     function AuthService(http) {
         this.http = http;
-        this.api_url = "http://138.197.75.58:8888";
-        // public api_url ="https://localhost:8080";
-        this.username = "Tushar";
+        //  public api_url ="http://138.197.75.58:8888";
+        this.api_url = "https://localhost:8080";
         this.loginEvent = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
-        var currentUser = localStorage.getItem('currentUser');
-        this.token = currentUser;
     }
     AuthService.prototype.login = function (username, password) {
         //let headers = new Headers({'Content-Type':'application/json'});
@@ -48,8 +45,11 @@ var AuthService = (function () {
                     return false;
                 }
                 console.log(resp.token);
+                console.log(resp.username);
+                _this.username = resp.username;
                 _this.token = resp.token;
-                localStorage.setItem("currentUser", resp.token);
+                var user = { "username": resp.username, "token": resp.token };
+                localStorage.setItem("currentUser", JSON.stringify(user));
                 _this.loginEvent.emit(true);
                 return true;
             }
@@ -57,16 +57,39 @@ var AuthService = (function () {
         });
     };
     AuthService.prototype.register = function (user) {
+        var _this = this;
         return this.http.post(this.api_url + "/api/register", user)
             .map(function (response) {
+            var resp = response.json();
+            if (resp.token == "") {
+                console.log("Getting in wrong thing");
+                _this.loginEvent.emit(false);
+                return { "message": resp.message, "status": false };
+            }
+            _this.token = resp.token;
+            _this.username = resp.username;
+            var user = { "username": resp.username, "token": resp.token };
+            localStorage.setItem("currentUser", JSON.stringify(user));
+            //localStorage.setItem("currentUser",r);
+            _this.loginEvent.emit(true);
             console.log(response);
-            return response;
+            return { "message": resp.message, "status": true };
         });
     };
     AuthService.prototype.ping = function () {
         return this.http.get("http://localhost:8000/api/authenticate")
             .map(function (response) {
             return response;
+        });
+    };
+    AuthService.prototype.checkToken = function () {
+        console.log("Checking token again");
+        var toke = { "token": this.token };
+        console.log(this.token);
+        var token = JSON.stringify(toke);
+        this.http.get("https://localhost:8080/api/view")
+            .map(function (response) {
+            console.log(response);
         });
     };
     AuthService.prototype.logout = function () {
@@ -124,6 +147,7 @@ var DashboardComponent = (function () {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__service_auth_service__ = __webpack_require__(119);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DashviewComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -135,20 +159,30 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var DashviewComponent = (function () {
-    function DashviewComponent() {
+    function DashviewComponent(authservice) {
+        this.authservice = authservice;
         this.datasets = [{
                 "id": 1,
-                "title": "data 1"
+                "title": "CRX",
+                "status": "active",
+                "posted": "4 days ago"
             },
             {
                 "id": 2,
-                "title": "data 2"
+                "title": "X-Ray",
+                "status": "inactive",
+                "posted": "2 days ago"
             }
         ];
         this.clickedChild = false;
     }
     DashviewComponent.prototype.ngOnInit = function () {
+    };
+    DashviewComponent.prototype.checkToken = function () {
+        console.log("checking token");
+        this.authservice.checkToken();
     };
     DashviewComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
@@ -156,9 +190,10 @@ var DashviewComponent = (function () {
             template: __webpack_require__(835),
             styles: [__webpack_require__(823)]
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__service_auth_service__["a" /* AuthService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__service_auth_service__["a" /* AuthService */]) === 'function' && _a) || Object])
     ], DashviewComponent);
     return DashviewComponent;
+    var _a;
 }());
 //# sourceMappingURL=/Users/tushargarg/Desktop/Web/RadioWebFrontEnd/src/dashview.component.js.map
 
@@ -206,7 +241,7 @@ var LandingComponentComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__(116);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__service_auth_service__ = __webpack_require__(178);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__service_auth_service__ = __webpack_require__(119);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginComponentComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -356,7 +391,7 @@ var ProjectComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__(116);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(24);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__models_user__ = __webpack_require__(665);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__service_auth_service__ = __webpack_require__(178);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__service_auth_service__ = __webpack_require__(119);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RegisterComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -407,8 +442,13 @@ var RegisterComponent = (function () {
         this.user.prof = this.registerForm.get('prof').value;
         this.authservice.register(this.user)
             .subscribe(function (result) {
-            _this.error = true;
-            _this.errorMessage = "Contacted Server";
+            if (result["status"] == false) {
+                _this.error = true;
+                _this.errorMessage = result["message"];
+                _this.registerForm.reset;
+            }
+            else {
+            }
         });
     };
     RegisterComponent = __decorate([
@@ -589,7 +629,7 @@ var AppRoutingModule = (function () {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__(116);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__service_auth_service__ = __webpack_require__(178);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__service_auth_service__ = __webpack_require__(119);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -620,15 +660,22 @@ var AppComponent = (function () {
         //Add 'implements OnInit' to the class.
         if (localStorage.getItem("currentUser")) {
             this.loggedin = true;
+            var store = localStorage.getItem("currentUser");
+            console.log(store);
+            var user = JSON.parse(store);
+            this.user = user["username"];
+            this.authService.username = user["username"];
+            this.authService.token = user["token"];
             this.router.navigate(['/dashboard']);
         }
         else {
             this.loggedin = false;
         }
-        this.user = this.authService.username;
+        //this.user = this.authService.username;
         this.authService.loginEvent.subscribe(function (data) {
             _this.loggedin = data;
             if (data) {
+                _this.user = _this.authService.username;
                 console.log("going to places");
                 _this.router.navigate(['/dashboard']);
             }
@@ -680,7 +727,7 @@ var AppComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(42);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(164);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(165);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_material__ = __webpack_require__(616);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_clarity_angular__ = __webpack_require__(667);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_clarity_angular___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_clarity_angular__);
@@ -689,7 +736,7 @@ var AppComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_login_component_login_component_component__ = __webpack_require__(446);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__app_routing_module__ = __webpack_require__(662);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_register_register_component__ = __webpack_require__(449);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__service_auth_service__ = __webpack_require__(178);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__service_auth_service__ = __webpack_require__(119);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_dashboard_dashboard_component__ = __webpack_require__(443);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_team_team_component__ = __webpack_require__(450);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_project_project_component__ = __webpack_require__(448);
@@ -836,7 +883,7 @@ exports = module.exports = __webpack_require__(28)();
 
 
 // module
-exports.push([module.i, "header{\n    -webkit-transition: background-color 0.5s ease-in;\n    transition: background-color 0.5s ease-in;\n}\n.branding a{\n    color: white;\n}\n.navbar-light .navbar-nav .nav-link\n{\n    color: white;\n}\n.navbar-light  .navbar-brand\n{\n    color: white;\n}\n.active{\n    text-decoration: underline;\n}\n.scrolled{\n    background-color: #006A91;\n    opacity: 1;\n    \n\n}\n.over{\n    box-shadow:         0px 3px 5px rgba(100, 100, 100, 0.49);\n}\n.btn-primary{\n    border-radius: 0px;\n}\n.dropdown-menu{\n    padding: 5px;\n}\n#main-content{\n}", ""]);
+exports.push([module.i, "header{\n    -webkit-transition: background-color 0.5s ease-in;\n    transition: background-color 0.5s ease-in;\n    background-color: #0069ff;\n}\n.branding a{\n    color: white;\n}\n.navbar-light .navbar-nav .nav-link\n{\n    color: white;\n}\n.navbar-light  .navbar-brand\n{\n    color: white;\n}\n.active{\n    text-decoration: underline;\n}\n.scrolled{\n    background-color: white;\n    opacity: 1;\n    box-shadow:         0px 3px 5px rgba(100, 100, 100, 0.2);\n}\n.scrolled a{\n    color : black;\n}\n.over{\n    box-shadow:         0px 3px 5px rgba(100, 100, 100, 0.2);\n}\n.btn-primary{\n    border-radius: 0px;\n    background-color: transparent;\n}\n.dropdown-menu{\n    padding: 5px;\n}\n#main-content{\n}", ""]);
 
 // exports
 
@@ -872,7 +919,7 @@ exports = module.exports = __webpack_require__(28)();
 
 
 // module
-exports.push([module.i, ".display-3{\n    margin-top: 20px;\n}", ""]);
+exports.push([module.i, ".display-3{\n    margin-top: 20px;\n    font-family: sans-serif;\n}\na{\n    color: #0069ff;\n}", ""]);
 
 // exports
 
@@ -890,7 +937,7 @@ exports = module.exports = __webpack_require__(28)();
 
 
 // module
-exports.push([module.i, ".jumbotron{\n    border-radius: 0px;\n    min-height: 500px;\n    background-color: #007CBB;\n    color: white;\n}\n.col-sm-6{\n    margin: 10px;\n}\n#main-content{\n    margin-top: 0px;\n}\n", ""]);
+exports.push([module.i, ".jumbotron{\n    border-radius: 0px;\n    min-height: 500px;\n    background-color: #0069ff;\n    color: white;\n}\n.col-sm-6{\n    margin: 10px;\n}\n#main-content{\n    margin-top: 0px;\n}\n.display-3, .display-6{\n    color: white;\n}", ""]);
 
 // exports
 
@@ -993,7 +1040,7 @@ module.exports = module.exports.toString();
 /***/ 833:
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n  <header class=\"header-6\" [ngClass] = \"{'scrolled' : isScrolled, 'fixed-top' : isScrolled, 'over' : isover}\">\n    <div class=\"branding\"><a class=\"navbar-brand\" routerLink=\"/\">RadioWeb</a></div>\n    <div class=\"header-nav\">\n            <a routerLink=\"/team\" routerLinkActive=\"active\" class=\"nav-link nav-text\">Team</a>\n            <a routerLink=\"/projects\" routerLinkActive=\"active\" class=\"nav-link nav-text\" >Projects</a>\n        </div>\n    <div class=\"header-actions\">\n        <a  class=\"nav-link nav-text\" routerLink=\"/login\" routerLinkActive=\"active\" *ngIf=\"!loggedin\">Login</a>\n        <a class=\"nav-link nav-text\" routerLink=\"/register\" routerLinkActive=\"active\" *ngIf=\"!loggedin\">Sign Up</a>\n          <clr-dropdown *ngIf=\"loggedin\">\n      <button class=\"btn btn-info\" clrDropdownToggle>\n          {{user}}\n      </button>\n      <div class=\"dropdown-menu\">\n          <label class=\"dropdown-header\">Options</label>\n          <a href=\"...\" clrDropdownItem>Settings</a>\n          <a href=\"...\" clrDropdownItem>Help</a>\n          <div class=\"dropdown-divider\"></div>\n          <a href=\"\" clrDropdownItem (click) = \"logout()\">logout</a>\n      </div>\n      </clr-dropdown>\n        </div>\n  </header>\n  <nav class=\"subnav\" *ngIf=\"loggedin\">\n    <ul class=\"nav\">\n        <li class=\"nav-item\">\n            <a class=\"nav-link active\" href=\"\" routerLink=\"/dashboard\" routerLinkActive=\"active\">Dashboard</a>\n        </li>\n    </ul>\n  </nav>\n<div id=\"main-content\" class=\"content-container\">\n<router-outlet></router-outlet>\n</div>\n</div>"
+module.exports = "<div>\n  <header class=\"header-6\" [ngClass] = \"{'scrolled' : isScrolled, 'fixed-top' : isScrolled, 'over' : isover}\">\n    <div class=\"branding\"><a class=\"navbar-brand\" routerLink=\"/\">RadioWeb</a></div>\n    <div class=\"header-nav\">\n            <a routerLink=\"/team\" routerLinkActive=\"active\" class=\"nav-link nav-text\">Team</a>\n            <a routerLink=\"/projects\" routerLinkActive=\"active\" class=\"nav-link nav-text\" >Projects</a>\n        </div>\n    <div class=\"header-actions\">\n        <a  class=\"nav-link nav-text\" routerLink=\"/login\" routerLinkActive=\"active\" *ngIf=\"!loggedin\">Log In</a>\n        <a class=\"nav-link nav-text\" routerLink=\"/register\" routerLinkActive=\"active\" *ngIf=\"!loggedin\">Sign Up</a>\n          <clr-dropdown *ngIf=\"loggedin\">\n      <button class=\"btn btn-primary\" clrDropdownToggle>\n          {{user}}\n      </button>\n      <div class=\"dropdown-menu\">\n          <label class=\"dropdown-header\">Options</label>\n          <a href=\"...\" clrDropdownItem>Settings</a>\n          <a href=\"...\" clrDropdownItem>Help</a>\n          <div class=\"dropdown-divider\"></div>\n          <a href=\"\" clrDropdownItem (click) = \"logout()\">logout</a>\n      </div>\n      </clr-dropdown>\n        </div>\n  </header>\n  <nav class=\"subnav\" *ngIf=\"loggedin\">\n    <ul class=\"nav\">\n        <li class=\"nav-item\">\n            <a class=\"nav-link active\" href=\"\" routerLink=\"/dashboard\" routerLinkActive=\"active\">Dashboard</a>\n        </li>\n    </ul>\n  </nav>\n<div id=\"main-content\" class=\"content-container\">\n<router-outlet></router-outlet>\n</div>\n</div>"
 
 /***/ }),
 
@@ -1007,21 +1054,21 @@ module.exports = "<div>\n  <div class=\"container\">\n    <router-outlet></route
 /***/ 835:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"card col-sm-8\">\n<h1 class=\"display-3\">Available Datasets</h1>\n      <ul>\n      <a *ngFor = \"let item of datasets\" [routerLink] = \"['data', item.id]\">\n      <div class=\"card-block\">{{item.title}}</div>\n      </a>\n      </ul>\n      </div>"
+module.exports = "<div>\n<h3 class=\"display-4\">Datasets</h3>\n      <table class=\"table\">\n            <thead>\n                  <tr>\n                        <th>Name</th>\n                        <th>Status</th>\n                        <th>Posted</th>\n                  </tr>\n            </thead>\n            <tbody>\n            <tr *ngFor = \"let item of datasets\">\n                  <td> <a [routerLink] = \"['data', item.id]\">{{item.title}}</a></td>\n                  <td>{{item.status}}</td>\n                  <td>{{item.posted}}</td>\n            </tr>\n            </tbody>\n      </table>\n      <!--<button class=\"btn btn-primary\" (click) = \"checkToken()\">Check Token</button>-->\n      </div>"
 
 /***/ }),
 
 /***/ 836:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"jumbotron\">\n  <h1 class=\"display-1\">Radiology Datasets</h1>\n  <h2 class=\"display-4\">Better annotated datasets for research and machine learning</h2>\n</div>\n  <div class=\"container\">\n    <div class=\"row\">\n      <div class=\"col-sm-6\">\n          <h2>Who we are?</h2><br>\n          <h6>INNOVATIVE</h6>\n          <p>Founded in 2016, ours is a India-based company exploring the use of deep learning in medical field.</p>\n          <h6>STRONG TEAMWORK</h6>\n          <p>Our team is a group of academicians and researchers met while working at Panjab University working on different projects. They eventually shifted on deep machine learning realizing that it is the future and could be applied to different real-life problems especially in the medical field. Our solutions aims to help doctors and patients by providing quality healthcare to every person.</p>\n          <h6>ENTERPRISING</h6>\n          <p>We are currently working with India's top hospitals like PGIMS, Medanta, Fortis Hospital to collect medical data and develop healthcare solution based on deep machine learning. We are also prviding a portal where new radiologists can enhance their interpretation skills using experience of others incorporated in our vast annotated dataset. These solutions will assits them in diagnosing diseases in patients.</p>\n      </div>\n      <div class=\"col-sm-6\"></div>\n    </div>\n  </div>\n  <div class=\"container\">\n    <div class=\"row\">\n      <div class=\"col-sm-6\"></div>\n      <div class=\"col-sm-6\">\n        <h2>Mission</h2>\n        <p>Lot of medical data is being processed by the medical institutes every year which remains unused since it is not shared. Our mission is to use this unshared data which will fasten the treatment process and will also increase the ability of doctors to interpret medical data. Our product on one hand will allow the hospitals and individual doctors to provide the medical data and annotate it to describe the abnormality. On the other hand, new radiologists will be able to learn using the dataset annotated by the experts and various companies can also buy the annotated medical data to use in their products. The quality and quantity of the dataset will rapidly increase as each image will have annotations from group of radiologists. The shared data will be used to train a deep learning solution and it will create a solution which can be used to assist radiologists and also help in training of the new trainees.</p>\n      </div>\n    </div>\n  </div>\n  <div class=\"container\">\n    <div class=\"row\">\n      <div class=\"col-sm-12\">\n        <h2>Solutions we provide</h2>\n        <p>We work with wide range of partners and data providers to develop decision support systems using deep learning. Our technology incorporates different type of unstructured medical data such as radiology images, medical reports, laboratory results and patient histories. The more amount of data allows higher accuracy and deeper knowledge about each patient. We provide solutions which integrates effortlessly with your existing healthcare infrastructure. Ours solutions are explained below:</p>\n      </div>\n    </div>\n    <div class=\"row\">\n      <div class=\"col-sm-6\"></div>\n      <div class=\"col-sm-4\">\n        <h5>Real-time Clinical Support</h5>\n        <p>Millions of Indian population is effected every year due to cognitive and perpetual diagnostic errors. These errors can be greatly reduced if an efficient and accurate support system is available for doctors. Our real-time clinical support solutions provide automatic analysis to help doctors diagnose intriguing cases.</p>\n      </div>\n    </div>\n    <div class=\"row\">\n      <div class=\"col-sm-4\">\n        <h5>Screening programs</h5>\n        <p>Many persons develop a specific disease since it is not diagnosed at an early stage. In India, medical facilities in rural areas are very poor and also presence of expert doctor opinion is also rare. Hence we are working on providing screening solutions which can analyze quickly to highlight suspicious areas and recommend the patient to visit hospital if there is feasible chance of presence of any abnormality.</p>\n      </div>\n      <div class=\"col-sm-6\"></div>\n    </div>\n    <div class=\"row\">\n       <div class=\"col-sm-6\"></div>\n      <div class=\"col-sm-4\">\n        <h5>Learn and Earn</h5>\n        <p>Radiology suffers from high error rates as studies show that false positive rates can be up to 2% while false negative rates can exceed 25%. Using our solution, you can train your new radiologists and trainees to practise on vast dataset of varied type which provide different challenges in interpreting. Hospitals and doctors can also support us by providing annotated data which will help in expanded our data source and they can also earn some money in the process.</p>\n      </div>\n    </div>\n  </div>\n  <div class=\"container\">\n    <div class=\"row\">\n      <div class=\"col-sm-12\">\n        <h2>Areas of Research</h2>\n        <p>Our team's main research interest is applying deep machine learning to provide state-of-art solutions in different fields. Currently we are working in the field of medical image analysis using different modalities. Other general area of interest includes image processing and computer vision.</p>\n      </div>\n    </div>\n  </div>\n"
+module.exports = "<div class=\"jumbotron\">\n  <h1 class=\"display-3\">Radiology Datasets</h1>\n  <h2 class=\"display-6\">Better annotated datasets for research<br> and machine learning</h2>\n  <button class=\"btn btn-lg btn-success\">Sign Up Now</button>\n</div>\n  <div class=\"container\">\n    <div class=\"row\">\n      <div class=\"col-sm-6\">\n          <h2>Who we are?</h2><br>\n          <h6>INNOVATIVE</h6>\n          <p>Founded in 2016, ours is a India-based company exploring the use of deep learning in medical field.</p>\n          <h6>STRONG TEAMWORK</h6>\n          <p>Our team is a group of academicians and researchers met while working at Panjab University working on different projects. They eventually shifted on deep machine learning realizing that it is the future and could be applied to different real-life problems especially in the medical field. Our solutions aims to help doctors and patients by providing quality healthcare to every person.</p>\n          <h6>ENTERPRISING</h6>\n          <p>We are currently working with India's top hospitals like PGIMS, Medanta, Fortis Hospital to collect medical data and develop healthcare solution based on deep machine learning. We are also prviding a portal where new radiologists can enhance their interpretation skills using experience of others incorporated in our vast annotated dataset. These solutions will assits them in diagnosing diseases in patients.</p>\n      </div>\n      <div class=\"col-sm-6\"></div>\n    </div>\n  </div>\n  <div class=\"container\">\n    <div class=\"row\">\n      <div class=\"col-sm-6\"></div>\n      <div class=\"col-sm-6\">\n        <h2>Mission</h2>\n        <p>Lot of medical data is being processed by the medical institutes every year which remains unused since it is not shared. Our mission is to use this unshared data which will fasten the treatment process and will also increase the ability of doctors to interpret medical data. Our product on one hand will allow the hospitals and individual doctors to provide the medical data and annotate it to describe the abnormality. On the other hand, new radiologists will be able to learn using the dataset annotated by the experts and various companies can also buy the annotated medical data to use in their products. The quality and quantity of the dataset will rapidly increase as each image will have annotations from group of radiologists. The shared data will be used to train a deep learning solution and it will create a solution which can be used to assist radiologists and also help in training of the new trainees.</p>\n      </div>\n    </div>\n  </div>\n  <div class=\"container\">\n    <div class=\"row\">\n      <div class=\"col-sm-12\">\n        <h2>Solutions we provide</h2>\n        <p>We work with wide range of partners and data providers to develop decision support systems using deep learning. Our technology incorporates different type of unstructured medical data such as radiology images, medical reports, laboratory results and patient histories. The more amount of data allows higher accuracy and deeper knowledge about each patient. We provide solutions which integrates effortlessly with your existing healthcare infrastructure. Ours solutions are explained below:</p>\n      </div>\n    </div>\n    <div class=\"row\">\n      <div class=\"col-sm-6\"></div>\n      <div class=\"col-sm-4\">\n        <h5>Real-time Clinical Support</h5>\n        <p>Millions of Indian population is effected every year due to cognitive and perpetual diagnostic errors. These errors can be greatly reduced if an efficient and accurate support system is available for doctors. Our real-time clinical support solutions provide automatic analysis to help doctors diagnose intriguing cases.</p>\n      </div>\n    </div>\n    <div class=\"row\">\n      <div class=\"col-sm-4\">\n        <h5>Screening programs</h5>\n        <p>Many persons develop a specific disease since it is not diagnosed at an early stage. In India, medical facilities in rural areas are very poor and also presence of expert doctor opinion is also rare. Hence we are working on providing screening solutions which can analyze quickly to highlight suspicious areas and recommend the patient to visit hospital if there is feasible chance of presence of any abnormality.</p>\n      </div>\n      <div class=\"col-sm-6\"></div>\n    </div>\n    <div class=\"row\">\n       <div class=\"col-sm-6\"></div>\n      <div class=\"col-sm-4\">\n        <h5>Learn and Earn</h5>\n        <p>Radiology suffers from high error rates as studies show that false positive rates can be up to 2% while false negative rates can exceed 25%. Using our solution, you can train your new radiologists and trainees to practise on vast dataset of varied type which provide different challenges in interpreting. Hospitals and doctors can also support us by providing annotated data which will help in expanded our data source and they can also earn some money in the process.</p>\n      </div>\n    </div>\n  </div>\n  <div class=\"container\">\n    <div class=\"row\">\n      <div class=\"col-sm-12\">\n        <h2>Areas of Research</h2>\n        <p>Our team's main research interest is applying deep machine learning to provide state-of-art solutions in different fields. Currently we are working in the field of medical image analysis using different modalities. Other general area of interest includes image processing and computer vision.</p>\n      </div>\n    </div>\n  </div>\n  <footer class=\"footer\"></footer>\n"
 
 /***/ }),
 
 /***/ 837:
 /***/ (function(module, exports) {
 
-module.exports = "<md-card class =\"form-container container card col-sm-4\" > \n  <div id=\"headings\" class=\"text-center\">\n  <h2 >Sign in to RadioWeb</h2>\n  <h6>Enter your <b>email address</b> and <b>password</b></h6>\n  </div>\n  <h6 *ngIf=\"error\" class=\"alert alert-danger\">{{errormessage}}</h6>\n  <form name=\"form\" [formGroup] = \"loginForm\" (ngSubmit) = \"login($event)\">\n  <section class=\"form-block \">\n  <div class=\"form-group\">\n    <label for=\"exampleInputEmail1\" class=\"\">Email</label>\n    <input name=\"email\" type=\"email\" formControlName=\"email\" class=\"form-control\" id=\"exampleInputEmail1\" placeholder=\"you@domain.com\" size=\"45\">\n  </div>\n  <div class=\"form-group\">\n    <label for=\"exampleInputPassword1\">Password</label>\n    <input type=\"password\" name=\"password\" formControlName=\"password\" class=\"form-control\" id=\"exampleInputPassword1\" placeholder=\"password\">\n  </div>\n  <button type=\"submit\" class=\"btn btn-success\">Sign In</button>\n  </section>\n</form>\n<div id = \"register\">\n  <p><a routerLink=\"/register\" routerLinkActive=\"active\" >Register</a> for RadioWeb</p>\n</div>\n</md-card>"
+module.exports = "<div class =\"form-container container card col-sm-4\" > \n  <div class=\"card-block\">\n  <div id=\"headings\" class=\"text-center\">\n  <h2 >Sign in to RadioWeb</h2>\n  <h6>Enter your <b>email address</b> and <b>password</b></h6>\n  </div>\n  <h6 *ngIf=\"error\" class=\"alert alert-danger\">{{errormessage}}</h6>\n  <form name=\"form\" [formGroup] = \"loginForm\" (ngSubmit) = \"login($event)\">\n  <section class=\"form-block \">\n  <div class=\"form-group\">\n    <label for=\"exampleInputEmail1\" class=\"\">Email</label>\n    <input name=\"email\" type=\"email\" formControlName=\"email\" class=\"form-control\" id=\"exampleInputEmail1\" placeholder=\"you@domain.com\" size=\"45\">\n  </div>\n  <div class=\"form-group\">\n    <label for=\"exampleInputPassword1\">Password</label>\n    <input type=\"password\" name=\"password\" formControlName=\"password\" class=\"form-control\" id=\"exampleInputPassword1\" placeholder=\"password\">\n  </div>\n  <button type=\"submit\" class=\"btn btn-success\">Sign In</button>\n  </section>\n</form>\n<div id = \"register\">\n  <p><a routerLink=\"/register\" routerLinkActive=\"active\" >Register</a> for RadioWeb</p>\n</div>\n</div>\n</div>"
 
 /***/ }),
 
@@ -1042,7 +1089,7 @@ module.exports = "<div class=\"container\">\n  <h2>Projects</h2>\n  <div class=\
 /***/ 840:
 /***/ (function(module, exports) {
 
-module.exports = "<md-card class=\"container col-sm-4 \">\n  <div id=\"headings\" class=\"text-center\">\n    <h2>Register to RadioWeb</h2>\n    <p *ngIf=\"error\">{{errorMessage}}</p>\n  </div>\n    <form [formGroup]=\"registerForm\" (ngSubmit)=\"register($event)\">\n      <div class=\"input-group \"><input type=\"text\" class=\"form-control\" placeholder=\"first name\" formControlName=\"first\"><input type=\"text\" class=\"form-control\"placeholder=\"last name\" formControlName=\"last\"></div>\n      <div class=\"form-group\">\n        <label for=\"email\">Email</label>\n        <input type=\"email\"class=\"form-control\" placeholder=\"you@domain.com\" formControlName=\"email\" id=\"email\"></div>\n      <div class=\"form-group\">\n        <label for=\"password\">Password</label>\n        <input type=\"password\" class=\"form-control\"placeholder=\"******\" formControlName=\"password\" id=\"password\"></div>\n      <div class=\"form-group\">\n        <label for=\"passwordA\">Enter the password again</label>\n        <input type=\"password\"class=\"form-control\" placeholder=\"******\" formControlName=\"again\" id=\"passwordA\"></div>\n      <div class=\"form-group\">\n        <label for=\"prof\">Enter your Profession</label>\n        <select name=\"profession\" id=\"\" class=\"form-control\"placeholder=\"profession\" formControlName=\"prof\" id=\"prof\">\n        <option value=\"Doctor\">Doctor</option>\n        <option value=\"Student\">Student</option>\n        <option value=\"Professor\">Professor</option>\n        <option value=\"Company\">Company</option>\n        </select></div>\n      <button type=\"submit\" class=\"btn btn-success form-control\" >Register</button>\n    </form>\n</md-card>"
+module.exports = "<div class=\"container card col-sm-4 \">\n  <div class=\"card-block\">\n  <div id=\"headings\" class=\"text-center\">\n    <h2>Register to RadioWeb</h2>\n    <p *ngIf=\"error\">{{errorMessage}}</p>\n  </div>\n    <form [formGroup]=\"registerForm\" (ngSubmit)=\"register($event)\">\n      <div class=\"input-group \"><input type=\"text\" class=\"form-control\" placeholder=\"first name\" formControlName=\"first\"><input type=\"text\" class=\"form-control\"placeholder=\"last name\" formControlName=\"last\"></div>\n      <div class=\"form-group\">\n        <label for=\"email\">Email</label>\n        <input type=\"email\"class=\"form-control\" placeholder=\"you@domain.com\" formControlName=\"email\" id=\"email\"></div>\n      <div class=\"form-group\">\n        <label for=\"password\">Password</label>\n        <input type=\"password\" class=\"form-control\"placeholder=\"******\" formControlName=\"password\" id=\"password\"></div>\n      <div class=\"form-group\">\n        <label for=\"passwordA\">Enter the password again</label>\n        <input type=\"password\"class=\"form-control\" placeholder=\"******\" formControlName=\"again\" id=\"passwordA\"></div>\n      <div class=\"form-group\">\n        <label for=\"prof\">Enter your Profession</label>\n        <select name=\"profession\" id=\"\" class=\"form-control\"placeholder=\"profession\" formControlName=\"prof\" id=\"prof\">\n        <option value=\"Doctor\">Doctor</option>\n        <option value=\"Student\">Student</option>\n        <option value=\"Professor\">Professor</option>\n        <option value=\"Company\">Company</option>\n        </select></div>\n      <button type=\"submit\" class=\"btn btn-success form-control\" >Register</button>\n    </form>\n    </div>\n</div>"
 
 /***/ }),
 
