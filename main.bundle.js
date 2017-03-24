@@ -24,8 +24,8 @@ var DashboardComponent = (function () {
     DashboardComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-dashboard',
-            template: __webpack_require__(844),
-            styles: [__webpack_require__(829)]
+            template: __webpack_require__(843),
+            styles: [__webpack_require__(828)]
         }), 
         __metadata('design:paramtypes', [])
     ], DashboardComponent);
@@ -104,8 +104,8 @@ var DashviewComponent = (function () {
     DashviewComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-dashview',
-            template: __webpack_require__(845),
-            styles: [__webpack_require__(830)]
+            template: __webpack_require__(844),
+            styles: [__webpack_require__(829)]
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__service_auth_service__["a" /* AuthService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__service_auth_service__["a" /* AuthService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__service_dataset_service__["a" /* DatasetService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__service_dataset_service__["a" /* DatasetService */]) === 'function' && _b) || Object])
     ], DashviewComponent);
@@ -140,8 +140,8 @@ var LandingComponentComponent = (function () {
     LandingComponentComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-landing-component',
-            template: __webpack_require__(846),
-            styles: [__webpack_require__(831)]
+            template: __webpack_require__(845),
+            styles: [__webpack_require__(830)]
         }), 
         __metadata('design:paramtypes', [])
     ], LandingComponentComponent);
@@ -211,8 +211,8 @@ var LoginComponentComponent = (function () {
     LoginComponentComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-login-component',
-            template: __webpack_require__(847),
-            styles: [__webpack_require__(832)]
+            template: __webpack_require__(846),
+            styles: [__webpack_require__(831)]
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__service_auth_service__["a" /* AuthService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__service_auth_service__["a" /* AuthService */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_forms__["FormBuilder"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__angular_forms__["FormBuilder"]) === 'function' && _c) || Object])
     ], LoginComponentComponent);
@@ -253,8 +253,8 @@ var MarkerComponent = (function () {
     MarkerComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-marker',
-            template: __webpack_require__(848),
-            styles: [__webpack_require__(833)]
+            template: __webpack_require__(847),
+            styles: [__webpack_require__(832)]
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */]) === 'function' && _b) || Object])
     ], MarkerComponent);
@@ -289,8 +289,8 @@ var ProjectComponent = (function () {
     ProjectComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-project',
-            template: __webpack_require__(849),
-            styles: [__webpack_require__(834)]
+            template: __webpack_require__(848),
+            styles: [__webpack_require__(833)]
         }), 
         __metadata('design:paramtypes', [])
     ], ProjectComponent);
@@ -371,8 +371,8 @@ var RegisterComponent = (function () {
     RegisterComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-register',
-            template: __webpack_require__(850),
-            styles: [__webpack_require__(835)]
+            template: __webpack_require__(849),
+            styles: [__webpack_require__(834)]
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4__service_auth_service__["a" /* AuthService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_4__service_auth_service__["a" /* AuthService */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_forms__["FormBuilder"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__angular_forms__["FormBuilder"]) === 'function' && _c) || Object])
     ], RegisterComponent);
@@ -407,8 +407,8 @@ var TeamComponent = (function () {
     TeamComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-team',
-            template: __webpack_require__(851),
-            styles: [__webpack_require__(836)]
+            template: __webpack_require__(850),
+            styles: [__webpack_require__(835)]
         }), 
         __metadata('design:paramtypes', [])
     ], TeamComponent);
@@ -490,7 +490,7 @@ webpackEmptyContext.id = 508;
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__polyfills_ts__ = __webpack_require__(673);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__polyfills_ts__ = __webpack_require__(672);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__ = __webpack_require__(638);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_app_module__ = __webpack_require__(670);
 
@@ -675,8 +675,8 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-root',
-            template: __webpack_require__(843),
-            styles: [__webpack_require__(828)],
+            template: __webpack_require__(842),
+            styles: [__webpack_require__(827)],
             host: {
                 '(window:scroll)': 'updateHeader($event)'
             }
@@ -699,7 +699,7 @@ var AppComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(24);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(114);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_material__ = __webpack_require__(622);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_clarity_angular__ = __webpack_require__(674);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_clarity_angular__ = __webpack_require__(673);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_clarity_angular___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_clarity_angular__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ng2_file_upload__ = __webpack_require__(493);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ng2_file_upload___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_ng2_file_upload__);
@@ -799,50 +799,37 @@ var User = (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return environment; });
-var environment = {
-    production: true,
-    api_url: "https`://138.197.75.58:8888"
-};
-//# sourceMappingURL=/Users/tushargarg/Desktop/Web/RadioWebFrontEnd/src/environment.js.map
-
-/***/ }),
-
-/***/ 673:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_core_js_es6_symbol__ = __webpack_require__(688);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_core_js_es6_symbol__ = __webpack_require__(687);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_core_js_es6_symbol___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_core_js_es6_symbol__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_core_js_es6_object__ = __webpack_require__(681);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_core_js_es6_object__ = __webpack_require__(680);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_core_js_es6_object___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_core_js_es6_object__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_core_js_es6_function__ = __webpack_require__(677);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_core_js_es6_function__ = __webpack_require__(676);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_core_js_es6_function___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_core_js_es6_function__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_core_js_es6_parse_int__ = __webpack_require__(683);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_core_js_es6_parse_int__ = __webpack_require__(682);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_core_js_es6_parse_int___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_core_js_es6_parse_int__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_core_js_es6_parse_float__ = __webpack_require__(682);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_core_js_es6_parse_float__ = __webpack_require__(681);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_core_js_es6_parse_float___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_core_js_es6_parse_float__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_core_js_es6_number__ = __webpack_require__(680);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_core_js_es6_number__ = __webpack_require__(679);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_core_js_es6_number___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_core_js_es6_number__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_core_js_es6_math__ = __webpack_require__(679);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_core_js_es6_math__ = __webpack_require__(678);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_core_js_es6_math___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_core_js_es6_math__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_core_js_es6_string__ = __webpack_require__(687);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_core_js_es6_string__ = __webpack_require__(686);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_core_js_es6_string___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_core_js_es6_string__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_core_js_es6_date__ = __webpack_require__(676);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_core_js_es6_date__ = __webpack_require__(675);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_core_js_es6_date___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_core_js_es6_date__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_core_js_es6_array__ = __webpack_require__(675);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_core_js_es6_array__ = __webpack_require__(674);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_core_js_es6_array___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9_core_js_es6_array__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_core_js_es6_regexp__ = __webpack_require__(685);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_core_js_es6_regexp__ = __webpack_require__(684);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_core_js_es6_regexp___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10_core_js_es6_regexp__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_core_js_es6_map__ = __webpack_require__(678);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_core_js_es6_map__ = __webpack_require__(677);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_core_js_es6_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11_core_js_es6_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_core_js_es6_set__ = __webpack_require__(686);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_core_js_es6_set__ = __webpack_require__(685);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_core_js_es6_set___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12_core_js_es6_set__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_core_js_es6_reflect__ = __webpack_require__(684);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_core_js_es6_reflect__ = __webpack_require__(683);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_core_js_es6_reflect___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13_core_js_es6_reflect__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_core_js_es7_reflect__ = __webpack_require__(689);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_core_js_es7_reflect__ = __webpack_require__(688);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_core_js_es7_reflect___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14_core_js_es7_reflect__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_zone_js_dist_zone__ = __webpack_require__(894);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_zone_js_dist_zone__ = __webpack_require__(893);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_zone_js_dist_zone___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15_zone_js_dist_zone__);
 
 
@@ -864,7 +851,7 @@ var environment = {
 
 /***/ }),
 
-/***/ 828:
+/***/ 827:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(28)();
@@ -882,7 +869,7 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 829:
+/***/ 828:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(28)();
@@ -900,7 +887,7 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 830:
+/***/ 829:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(28)();
@@ -918,7 +905,7 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 831:
+/***/ 830:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(28)();
@@ -936,7 +923,7 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 832:
+/***/ 831:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(28)();
@@ -954,7 +941,7 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 833:
+/***/ 832:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(28)();
@@ -972,7 +959,7 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 834:
+/***/ 833:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(28)();
@@ -990,7 +977,7 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 835:
+/***/ 834:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(28)();
@@ -1008,7 +995,7 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 836:
+/***/ 835:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(28)();
@@ -1026,70 +1013,70 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 843:
+/***/ 842:
 /***/ (function(module, exports) {
 
 module.exports = "<div>\n  <header class=\"header-6\" [ngClass] = \"{'scrolled' : isScrolled, 'fixed-top' : isScrolled, 'over' : isover}\">\n    <div class=\"branding\"><a class=\"navbar-brand\" routerLink=\"/\">RadioWeb</a></div>\n    <div class=\"header-nav\">\n            <a routerLink=\"/team\" routerLinkActive=\"active\" class=\"nav-link nav-text\">Team</a>\n            <a routerLink=\"/projects\" routerLinkActive=\"active\" class=\"nav-link nav-text\" >Projects</a>\n        </div>\n    <div class=\"header-actions\">\n        <a  class=\"nav-link nav-text\" routerLink=\"/login\" routerLinkActive=\"active\" *ngIf=\"!loggedin\">Log In</a>\n        <a class=\"nav-link nav-text\" routerLink=\"/register\" routerLinkActive=\"active\" *ngIf=\"!loggedin\">Sign Up</a>\n          <clr-dropdown *ngIf=\"loggedin\">\n      <button class=\"btn btn-primary\" clrDropdownToggle>\n          {{user}}\n      </button>\n      <div class=\"dropdown-menu\">\n          <label class=\"dropdown-header\">Options</label>\n          <a href=\"...\" clrDropdownItem>Settings</a>\n          <a href=\"...\" clrDropdownItem>Help</a>\n          <div class=\"dropdown-divider\"></div>\n          <a href=\"\" clrDropdownItem (click) = \"logout()\">logout</a>\n      </div>\n      </clr-dropdown>\n        </div>\n  </header>\n  <nav class=\"subnav\" *ngIf=\"loggedin\">\n    <ul class=\"nav\">\n        <li class=\"nav-item\">\n            <a class=\"nav-link active\" href=\"\" routerLink=\"/dashboard\" routerLinkActive=\"active\">Dashboard</a>\n        </li>\n    </ul>\n  </nav>\n<div id=\"main-content\" class=\"content-container\">\n<router-outlet></router-outlet>\n</div>\n</div>"
 
 /***/ }),
 
-/***/ 844:
+/***/ 843:
 /***/ (function(module, exports) {
 
 module.exports = "<div>\n  <div class=\"container\">\n    <router-outlet></router-outlet>\n  </div>\n</div>\n"
 
 /***/ }),
 
-/***/ 845:
+/***/ 844:
 /***/ (function(module, exports) {
 
 module.exports = "<div>\n<button class=\"btn btn-success\" style=\"float: right;\"(click)=\"opened = true\">Add </button>\n<h3 class=\"display-4\">Datasets</h3>\n    <clr-modal [(clrModalOpen)]=\"opened\" [clrModalSize]=\"'xl'\">\n    <h3 class=\"modal-title\">Upload dataset</h3>\n    <div class=\"modal-body\">\n        <!--<p>But not much to say...</p>-->\n        <div ng2FileDrop\n                 [ngClass]=\"{'nv-file-over': hasBaseDropZoneOver}\"\n                 [uploader] = \"uploader\"\n                 (fileOver)=\"fileOverBase($event)\"\n                 class=\"well my-drop-zone\">\n                Drop your files here\n            </div>\n            <br>\n      <input type=\"file\" ng2FileSelect [uploader]=\"uploader\" multiple  /><br/>\n      <h3>Upload queue</h3>\n      <p>Queue length: {{ uploader?.queue?.length }}</p>\n      <ul class=\"list\">\n            <li class=\"list-item\" *ngFor = \"let item of uploader.queue\">{{item.file.name}}</li>\n      </ul>\n    </div>\n    <div class=\"modal-footer\">\n        <button type=\"button\" class=\"btn btn-outline\" (click)=\"opened = false\">Cancel</button>\n        <button type=\"button\" class=\"btn btn-primary\" (click)=\"opened = false\">Ok</button>\n    </div>\n</clr-modal>\n      <table class=\"table\">\n            <thead>\n                  <tr>\n                        <th>Name</th>\n                        <th>Status</th>\n                        <th>Posted</th>\n                  </tr>\n            </thead>\n            <tbody>\n            <tr *ngFor = \"let item of datasets\">\n                  <td> <a [routerLink] = \"['data', item.id]\">{{item.name}}</a></td>\n                  <td>active</td>\n                  <td>{{item.date}}</td>\n            </tr>\n            </tbody>\n      </table>\n      <!--<button class=\"btn btn-primary\" (click) = \"checkToken()\">Check Token</button>-->\n      </div>"
 
 /***/ }),
 
-/***/ 846:
+/***/ 845:
 /***/ (function(module, exports) {
 
 module.exports = "<div class=\"jumbotron\">\n  <h1 class=\"display-3\">Radiology Datasets</h1>\n  <h2 class=\"display-6\">Better annotated datasets for research<br> and machine learning</h2>\n  <!--<button class=\"btn btn-lg btn-success\" routerLink = \"/register\">Sign Up Now</button>-->\n</div>\n  <div class=\"container\">\n  </div>\n  <div class=\"container\">\n    <div class=\"row\">\n      <div class=\"col-sm-5\">\n        <h2>Mission</h2>\n        <p class=\"p1\">Lot of medical data is being processed by the medical institutes every year which remains unused since it is not shared. Our mission is to use this unshared data which will fasten the treatment process and will also increase the ability of doctors to interpret medical data. Our product on one hand will allow the hospitals and individual doctors to provide the medical data and annotate it to describe the abnormality. On the other hand, new radiologists will be able to learn using the dataset annotated by the experts and various companies can also buy the annotated medical data to use in their products. The quality and quantity of the dataset will rapidly increase as each image will have annotations from group of radiologists. The shared data will be used to train a deep learning solution and it will create a solution which can be used to assist radiologists and also help in training of the new trainees.</p>\n      </div>\n      <div class=\"col-sm-7\">\n        <img class=\"center-block\"src=\"/assets/img/lungs.png\" alt=\"\">\n      </div>\n    </div>\n  </div>\n  <div class=\"container\">\n    <div class=\"row\">\n      <div class=\"col-sm-12\">\n        <h2>Solutions we provide</h2>\n        <p>We work with wide range of partners and data providers to develop decision support systems using deep learning. Our technology incorporates different type of unstructured medical data such as radiology images, medical reports, laboratory results and patient histories. The more amount of data allows higher accuracy and deeper knowledge about each patient. We provide solutions which integrates effortlessly with your existing healthcare infrastructure. Ours solutions are explained below:</p>\n      </div>\n    </div>\n    <div class=\"row\">\n      <div class=\"col-sm-6\"><img class=\"\"src=\"/assets/img/realtime.png\" alt=\"\"></div>\n      <div class=\"col-sm-4\">\n        <h5>Real-time Clinical Support</h5>\n        <p>Millions of Indian population is effected every year due to cognitive and perpetual diagnostic errors. These errors can be greatly reduced if an efficient and accurate support system is available for doctors. Our real-time clinical support solutions provide automatic analysis to help doctors diagnose intriguing cases.</p>\n      </div>\n    </div>\n    <div class=\"row\">\n      <div class=\"col-sm-4\">\n        <h5>Screening programs</h5>\n        <p>Many persons develop a specific disease since it is not diagnosed at an early stage. In India, medical facilities in rural areas are very poor and also presence of expert doctor opinion is also rare. Hence we are working on providing screening solutions which can analyze quickly to highlight suspicious areas and recommend the patient to visit hospital if there is feasible chance of presence of any abnormality.</p>\n      </div>\n      <div class=\"col-sm-6\"></div>\n    </div>\n    <div class=\"row\">\n       <div class=\"col-sm-6\"></div>\n      <div class=\"col-sm-4\">\n        <h5>Learn and Earn</h5>\n        <p>Radiology suffers from high error rates as studies show that false positive rates can be up to 2% while false negative rates can exceed 25%. Using our solution, you can train your new radiologists and trainees to practise on vast dataset of varied type which provide different challenges in interpreting. Hospitals and doctors can also support us by providing annotated data which will help in expanded our data source and they can also earn some money in the process.</p>\n      </div>\n    </div>\n  </div>\n  <div class=\"container\">\n    <div class=\"row\">\n      <div class=\"col-sm-12\">\n        <h2>Areas of Research</h2>\n        <p>Our team's main research interest is applying deep machine learning to provide state-of-art solutions in different fields. Currently we are working in the field of medical image analysis using different modalities. Other general area of interest includes image processing and computer vision.</p>\n      </div>\n    </div>\n  </div>\n  <footer class=\"footer\"></footer>\n"
 
 /***/ }),
 
-/***/ 847:
+/***/ 846:
 /***/ (function(module, exports) {
 
 module.exports = "<div class =\"form-container container card col-sm-4\" > \n  <div class=\"card-block\">\n  <div id=\"headings\" class=\"text-center\">\n  <h2 >Sign in to RadioWeb</h2>\n  <h6>Enter your <b>email address</b> and <b>password</b></h6>\n  </div>\n  <h6 *ngIf=\"error\" class=\"alert alert-danger\">{{errormessage}}</h6>\n  <form name=\"form\" [formGroup] = \"loginForm\" (ngSubmit) = \"login($event)\">\n  <section class=\"form-block \">\n  <div class=\"form-group\">\n    <label for=\"exampleInputEmail1\" class=\"\">Email</label>\n    <input name=\"email\" type=\"email\" formControlName=\"email\" class=\"form-control\" id=\"exampleInputEmail1\" placeholder=\"you@domain.com\" size=\"45\">\n  </div>\n  <div class=\"form-group\">\n    <label for=\"exampleInputPassword1\">Password</label>\n    <input type=\"password\" name=\"password\" formControlName=\"password\" class=\"form-control\" id=\"exampleInputPassword1\" placeholder=\"password\">\n  </div>\n  <button type=\"submit\" class=\"btn btn-success\">Sign In</button>\n  </section>\n</form>\n<div id = \"register\">\n  <p><a routerLink=\"/register\" routerLinkActive=\"active\" >Register</a> for RadioWeb</p>\n</div>\n</div>\n</div>"
 
 /***/ }),
 
-/***/ 848:
+/***/ 847:
 /***/ (function(module, exports) {
 
 module.exports = "<div class=\"container\">\n<button class = \"btn btn-primary\" [routerLink] = \"['/dashboard']\"> &lt; Back </button>\n<p>\n  The id is {{id}}\n</p>\n</div>\n"
 
 /***/ }),
 
-/***/ 849:
+/***/ 848:
 /***/ (function(module, exports) {
 
 module.exports = "<div class=\"container\">\n  <h2>Projects</h2>\n  <div class=\"row\">\n    <div class=\"col-sm-12\">\n      <p>Our team has completed various projects sponsored by government as well as coorporate sectors  in the field of image processing, computer vission, vehicular communication and machine learning.</p>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
-/***/ 850:
+/***/ 849:
 /***/ (function(module, exports) {
 
 module.exports = "<div class=\"container card col-sm-4 \">\n  <div class=\"card-block\">\n  <div id=\"headings\" class=\"text-center\">\n    <h2>Register to RadioWeb</h2>\n    <p *ngIf=\"error\">{{errorMessage}}</p>\n  </div>\n    <form [formGroup]=\"registerForm\" (ngSubmit)=\"register($event)\">\n      <div class=\"input-group \"><input type=\"text\" class=\"form-control\" placeholder=\"first name\" formControlName=\"first\"><input type=\"text\" class=\"form-control\"placeholder=\"last name\" formControlName=\"last\"></div>\n      <div class=\"form-group\">\n        <label for=\"email\">Email</label>\n        <input type=\"email\"class=\"form-control\" placeholder=\"you@domain.com\" formControlName=\"email\" id=\"email\"></div>\n      <div class=\"form-group\">\n        <label for=\"password\">Password</label>\n        <input type=\"password\" class=\"form-control\"placeholder=\"******\" formControlName=\"password\" id=\"password\"></div>\n      <div class=\"form-group\">\n        <label for=\"passwordA\">Enter the password again</label>\n        <input type=\"password\"class=\"form-control\" placeholder=\"******\" formControlName=\"again\" id=\"passwordA\"></div>\n      <div class=\"form-group\">\n        <label for=\"prof\">Enter your Profession</label>\n        <select name=\"profession\" id=\"\" class=\"form-control\"placeholder=\"profession\" formControlName=\"prof\" id=\"prof\">\n        <option value=\"Doctor\">Doctor</option>\n        <option value=\"Student\">Student</option>\n        <option value=\"Professor\">Professor</option>\n        <option value=\"Company\">Company</option>\n        </select></div>\n      <button type=\"submit\" class=\"btn btn-success form-control\" >Register</button>\n    </form>\n    </div>\n</div>"
 
 /***/ }),
 
-/***/ 851:
+/***/ 850:
 /***/ (function(module, exports) {
 
 module.exports = "<div class=\"container\">\n<h1>Team</h1>\n<p>Our team is an award-winning team of academicians and researchers working to practice machine learning in the field of image processing and medical image analysis.</p>\n<div id=\"images\" class=\"container text-center\">\n  <div class=\"row\">\n    <md-card div class=\"col-sm-4\">\n      <img src=\"http://www.motormasters.info/wp-content/uploads/2015/02/dummy-profile-pic-male1.jpg\" alt=\"\">\n      <p>Dr. Ajay Mittal</p>\n    </md-card>\n    <md-card class=\"col-sm-4\">\n      <img src=\"http://www.motormasters.info/wp-content/uploads/2015/02/dummy-profile-pic-male1.jpg\" alt=\"\">\n      <p>Dr. Naveen Aggarwal</p>\n    </md-card>\n    <md-card class=\"col-sm-4\">\n      <img src=\"http://www.motormasters.info/wp-content/uploads/2015/02/dummy-profile-pic-male1.jpg\" alt=\"\">\n      <p>Dr. Akashdeep</p>\n    </md-card>\n  </div>\n</div>\n</div>"
 
 /***/ }),
 
-/***/ 895:
+/***/ 894:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(509);
@@ -1103,9 +1090,8 @@ module.exports = __webpack_require__(509);
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(114);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__environments_environment__ = __webpack_require__(672);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__(128);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(128);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1119,12 +1105,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
 var AuthService = (function () {
     function AuthService(http) {
         this.http = http;
-        //  public api_url ="http://138.197.75.58:8888";
-        this.api_url = __WEBPACK_IMPORTED_MODULE_2__environments_environment__["a" /* environment */].api_url;
+        this.api_url = "http://138.197.75.58:8888";
         this.loginEvent = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
     }
     AuthService.prototype.login = function (username, password) {
@@ -1206,5 +1190,5 @@ var AuthService = (function () {
 
 /***/ })
 
-},[895]);
+},[894]);
 //# sourceMappingURL=main.bundle.js.map
